@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-        <div className=' h-screen bg-grey-light absolute top-0 left-0 right-0 -z-10'/>
+        <div className=' min-h-screen bg-grey-light absolute top-0 left-0 right-0 -z-10'/>
         <img src={sidebarMobile} alt='sidebar' className='absolute w-full md:hidden top-0 left-0 right-0 -z-10'/>
         <div className='h-[172px] flex gap-4 justify-center md:hidden items-start pt-9'>
           <StepperIndicator stepNumber={1} isCurrent={activeStep === 1 && true}/>
