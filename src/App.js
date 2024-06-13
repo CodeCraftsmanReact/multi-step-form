@@ -34,7 +34,7 @@ function App() {
           {activeStep === 4 && <StepFour activeStep={activeStep} setActiveStep={setActiveStep}  state={{onlineService, largerStorage, CustomizableProfile}} plan={plan} option={option}/>}
           {activeStep === 5 && <StepFive activeStep={activeStep}/>}
         </div>
-        <div className={`absolute bottom-0 md:hidden left-0 right-0 bg-white py-4 px-2 ${activeStep === 5 && "hidden" }`}>
+        <div className={`fixed bottom-0 md:hidden left-0 right-0 bg-white py-4 px-2 ${activeStep === 5 && "hidden" }`}>
           <button onClick={()=> setActiveStep( activeStep>1 ?  activeStep - 1 : activeStep)} className={`py-2 px-2 font-bold text-grey-cool ${activeStep === 1 && "hidden"}`}>Go Back</button>
           <button onClick={()=> setActiveStep( activeStep<5 ? activeStep+1 : activeStep)} className={`px-4 py-2 ${activeStep === 4 ? "bg-blue-purpleish" : "bg-blue-marine"}  text-white rounded-md float-end`}>{activeStep === 4 ? "Confirm" : "Next Step"}</button>
         </div>
@@ -60,7 +60,7 @@ function DesktopStepper({activeStep}){
 function StepOne({activeStep, setActiveStep}){
 
   return(
-     <div className='w-[90%] md:w-fit md:p-6 md:pr-16 gap-12 p-4 mx-auto md:flex md:relative  md:mt-16 -mt-16 rounded-md bg-white shadow-md'>
+     <div className='w-[90%] md:w-fit mb-20 md:p-6 md:pr-16 gap-12 p-4 mx-auto md:flex md:relative  md:mt-16 -mt-16 rounded-md bg-white shadow-md'>
         <DesktopStepper activeStep={activeStep}/>
         <div className='md:mt-10 md:w-[450px]'>
           <h3 className='text-blue-marine font-bold text-2xl'>Personal info</h3>
@@ -102,7 +102,7 @@ function StepTwo({option, setOption, setPlan, plan, activeStep, setActiveStep}){
     }
   }
   return(
-    <div className='w-[90%] md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:relative -mt-16 rounded-md bg-white shadow-md'>
+    <div className='w-[90%]  mb-20 md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:relative -mt-16 rounded-md bg-white shadow-md'>
       <DesktopStepper activeStep={activeStep}/>
        <div className='md:relative md: mt-10 md:w-[450px]'>
         <h3 className='text-blue-marine font-bold text-2xl'>Select your plan</h3>
@@ -142,7 +142,7 @@ function StepTwo({option, setOption, setPlan, plan, activeStep, setActiveStep}){
 
 function StepThree({option, state, setOnlineService, setLargerStorage, setCustomizableProfile , activeStep, setActiveStep}){
   return(
-    <div className='w-[90%] md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:relative -mt-16 rounded-md bg-white shadow-md'>
+    <div className='w-[90%]  mb-20 md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:relative -mt-16 rounded-md bg-white shadow-md'>
        <DesktopStepper activeStep={activeStep}/>
         <div className='md:relative md: mt-10 md:w-[450px]'>
           <h3 className='text-blue-marine font-bold text-2xl'>Pick add-ons</h3>
@@ -198,7 +198,7 @@ function StepFour({state,plan,option, activeStep, setActiveStep}){
     calculateTotal();
   }, [])
   return(
-    <div className='w-[90%] md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:relative -mt-16 rounded-md bg-white shadow-md'>
+    <div className='w-[90%]  mb-20 md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:relative -mt-16 rounded-md bg-white shadow-md'>
        <DesktopStepper activeStep={activeStep}/>
        <div className='md:relative md: mt-10 md:w-[450px]'>
         <h3 className='text-blue-marine font-bold text-2xl'>Finishing up</h3>
@@ -288,7 +288,7 @@ function StepFour({state,plan,option, activeStep, setActiveStep}){
 
 function StepFive({activeStep}){
   return(
-    <div className='w-[90%] md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:items-center md:relative -mt-16 rounded-md bg-white shadow-md'>
+    <div className='w-[90%]  mb-20 md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:items-center md:relative -mt-16 rounded-md bg-white shadow-md'>
        <DesktopStepper activeStep={activeStep}/>
        <div className='md:relative md: mt-10 md:w-[450px]'>
       <img src={iconThankyou} alt='Thank you' className='mx-auto mb-8 w-14'/>
