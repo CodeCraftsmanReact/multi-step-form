@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-        <div className=' min-h-screen bg-grey-light absolute top-0 left-0 right-0 -z-10'/>
+        <div className='bottom-0 bg-grey-light absolute top-0 left-0 right-0 -z-10'/>
         <img src={sidebarMobile} alt='sidebar' className='absolute w-full md:hidden top-0 left-0 right-0 -z-10'/>
         <div className='h-[172px] flex gap-4 justify-center md:hidden items-start pt-9'>
           <StepperIndicator stepNumber={1} isCurrent={activeStep === 1 && true}/>
@@ -60,7 +60,7 @@ function DesktopStepper({activeStep}){
 function StepOne({activeStep, setActiveStep}){
 
   return(
-     <div className='w-[90%] md:w-fit md:mb-20 md:p-6 md:pr-16 gap-12 p-4 mx-auto md:flex md:relative  md:mt-16 -mt-16 rounded-md bg-white shadow-md'>
+     <div className='w-[90%] md:w-fit mb-20 md:mb-0 md:p-6 md:pr-16 gap-12 p-4 mx-auto md:flex md:relative  md:mt-16 -mt-16 rounded-md bg-white shadow-md'>
         <DesktopStepper activeStep={activeStep}/>
         <div className='md:mt-10 md:w-[450px]'>
           <h3 className='text-blue-marine font-bold text-2xl'>Personal info</h3>
@@ -102,7 +102,7 @@ function StepTwo({option, setOption, setPlan, plan, activeStep, setActiveStep}){
     }
   }
   return(
-    <div className='w-[90%]  md:mb-20 md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:relative -mt-16 rounded-md bg-white shadow-md'>
+    <div className='w-[90%]  mb-20 md:mb-0 md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:relative -mt-16 rounded-md bg-white shadow-md'>
       <DesktopStepper activeStep={activeStep}/>
        <div className='md:relative md: mt-10 md:w-[450px]'>
         <h3 className='text-blue-marine font-bold text-2xl'>Select your plan</h3>
@@ -142,7 +142,7 @@ function StepTwo({option, setOption, setPlan, plan, activeStep, setActiveStep}){
 
 function StepThree({option, state, setOnlineService, setLargerStorage, setCustomizableProfile , activeStep, setActiveStep}){
   return(
-    <div className='w-[90%]  md:mb-20 md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:relative -mt-16 rounded-md bg-white shadow-md'>
+    <div className='w-[90%]  mb-20 md:mb-0 md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:relative -mt-16 rounded-md bg-white shadow-md'>
        <DesktopStepper activeStep={activeStep}/>
         <div className='md:relative md: mt-10 md:w-[450px]'>
           <h3 className='text-blue-marine font-bold text-2xl'>Pick add-ons</h3>
@@ -198,7 +198,7 @@ function StepFour({state,plan,option, activeStep, setActiveStep}){
     calculateTotal();
   }, [])
   return(
-    <div className='w-[90%]  md:mb-20 md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:relative -mt-16 rounded-md bg-white shadow-md'>
+    <div className='w-[90%]  mb-20 md:mb-0 md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:relative -mt-16 rounded-md bg-white shadow-md'>
        <DesktopStepper activeStep={activeStep}/>
        <div className='md:relative md: mt-10 md:w-[450px]'>
         <h3 className='text-blue-marine font-bold text-2xl'>Finishing up</h3>
@@ -288,7 +288,7 @@ function StepFour({state,plan,option, activeStep, setActiveStep}){
 
 function StepFive({activeStep}){
   return(
-    <div className='w-[90%]  md:mb-20 md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:items-center md:relative -mt-16 rounded-md bg-white shadow-md'>
+    <div className='w-[90%]  mb-20 md:mb-0 md:w-fit md:p-6 md:pr-16 mx-auto p-4 md:mt-16 md:flex md:gap-12 md:items-center md:relative -mt-16 rounded-md bg-white shadow-md'>
        <DesktopStepper activeStep={activeStep}/>
        <div className='md:relative md: mt-10 md:w-[450px]'>
       <img src={iconThankyou} alt='Thank you' className='mx-auto mb-8 w-14'/>
