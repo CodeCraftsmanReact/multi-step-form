@@ -21,6 +21,7 @@ function App() {
     <div className="App">
         <div className='bottom-0 bg-grey-light absolute top-0 left-0 right-0 -z-10'/>
         <img src={sidebarMobile} alt='sidebar' className='absolute w-full md:hidden top-0 left-0 right-0 -z-10'/>
+        {/* mobile step indicators */}
         <div className='h-[172px] flex gap-4 justify-center md:hidden items-start pt-9'>
           <StepperIndicator stepNumber={1} isCurrent={activeStep === 1 && true}/>
           <StepperIndicator stepNumber={2} isCurrent={activeStep === 2 && true}/>
@@ -34,6 +35,7 @@ function App() {
           {activeStep === 4 && <StepFour activeStep={activeStep} setActiveStep={setActiveStep}  state={{onlineService, largerStorage, CustomizableProfile}} plan={plan} option={option}/>}
           {activeStep === 5 && <StepFive activeStep={activeStep}/>}
         </div>
+        {/* only mobile buttons */}
         <div className={`fixed bottom-0 md:hidden left-0 right-0 bg-white py-4 px-2 ${activeStep === 5 && "hidden" }`}>
           <button onClick={()=> setActiveStep( activeStep>1 ?  activeStep - 1 : activeStep)} className={`py-2 px-2 font-bold text-grey-cool ${activeStep === 1 && "hidden"}`}>Go Back</button>
           <button onClick={()=> setActiveStep( activeStep<5 ? activeStep+1 : activeStep)} className={`px-4 py-2 ${activeStep === 4 ? "bg-blue-purpleish" : "bg-blue-marine"}  text-white rounded-md float-end`}>{activeStep === 4 ? "Confirm" : "Next Step"}</button>
@@ -190,9 +192,9 @@ function StepFour({state,plan,option, activeStep, setActiveStep}){
   useEffect(() => {
     function calculateTotal(){
       if(option){
-        setTotal((state.CustomizableProfile ? 2 : 0) + (state.onlineService ? 1 : 0) + (state.largerStorage ? 2 : 0) + 9) 
+        setTotal((state.CustomizableProfile ? 2 : 0) + (state.onlineService ? 1 : 0) + (state.largerStorage ? 2 : 0) + (plan[0] && 9 || plan[1] && 12 || plan[2] && 15 )) 
       }else{
-        setTotal((state.CustomizableProfile ? 20 : 0) + (state.onlineService ? 10 : 0) + (state.largerStorage ? 20 : 0) + 90)
+        setTotal((state.CustomizableProfile ? 20 : 0) + (state.onlineService ? 10 : 0) + (state.largerStorage ? 20 : 0) + (plan[0] && 90 || plan[1] && 120 || plan[2] && 150 ))
       }
     }
     calculateTotal();
@@ -227,7 +229,7 @@ function StepFour({state,plan,option, activeStep, setActiveStep}){
                 </div>
             }
             <div className='font-semibold text-blue-marine'>
-              ${option ? 9 : 90}/{ option ? "mo" : "yr"}
+              ${option ? (plan[0] && 9 || plan[1] && 12 || plan[2] && 15 ) : (plan[0] && 90 || plan[1] && 120 || plan[2] && 150 )}/{ option ? "mo" : "yr"}
             </div>
           </div>
           <hr/>
